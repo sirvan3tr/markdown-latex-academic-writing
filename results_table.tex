@@ -1,0 +1,152 @@
+\setlength\dashlinedash{0.2pt}
+\setlength\dashlinegap{1.5pt}
+\setlength\arrayrulewidth{0.3pt}
+
+
+\begin{table*}[]\footnotesize
+\caption{Analysis of 60 open source reports of data breaches and web attacks categorised based on method of attack.}
+\label{table:main}
+\centering
+\begin{tabular}{rlccccccl}
+\toprule
+\rowcolor{white}
+& & & & \multicolumn{2}{c}{\textbf{ Incident Date }} & & \\
+& Victim & Records & Data & From & To & News Date & Ref \\
+\toprule
+\multicolumn{2}{l}{ \textbf{Credential Stuffing Attack} } & & & & & \multicolumn{2}{c}{ Total: 4 } \\
+\hline
+1 & \textbf{J.CREW - US} & n/a & PII, \$, Sensitive activity & n/a & Apr '19 & Mar & \cite{whittakerCrewSaysHacker2020} \\
+\hdashline
+2 & \textbf{Amtrak - US} & n/a & PII & n/a & Apr & Jun & \cite{osborneAmtrakDisclosesData2020, maresAmtrakSuffersData2020} \\
+\hdashline
+3 & \textbf{Spotify - US} & 0.30 & PII & n/a & Nov & Nov & \cite{mooreThousandsSpotifyAccounts2020} \\
+\hdashline
+4 & \textbf{Zoom - US} & 0.50 & PII & n/a & Apr & Apr & \cite{abrams500000Zoom2020, FactVsHype2020} \\
+\hdashline
+\multicolumn{2}{l}{ \textbf{Man-in-the-Browser} } & & & & & \multicolumn{2}{c}{ Total: 7 } \\
+\hline
+5 & \textbf{Warner Music Group - US} & n/a & PII, \$ & Apr & Aug & Sept & \cite{smithWarnerMusicGroup2020, broersmaWarnerMusicWarns2020} \\
+\hdashline
+6 & \textbf{Sweaty Betty - UK} & n/a & PII, \$ & Nov '19 & Nov '19 & Dec '19 & \cite{abramsUKRetailerSweaty2019, SweatyBettyCustom2019} \\
+\hdashline
+7 & \textbf{Claire’s - US} & n/a & PII, \$ & Apr & Jun & Jun & \cite{sandleClaireMagecartHit2020, sansecMagecartStrikesCorona2020} \\
+\hdashline
+8 & \textbf{Boom! Mobile - US} & n/a & PII, \$ & n/a & Oct & Oct & \cite{osborneBoomMobileFalls2020, teamMobileNetworkOperator2020} \\
+\hdashline
+9 & \textbf{Hanna Andersson - US} & 0.20 & PII, \$ & 09 '19 & 11 '19 & Jan & \cite{delatorreHanna2019Breach2020, towsendHannaAnderssonData2020} \\
+\hdashline
+10 & \textbf{JM Bullion - US} & n/a & PII & Feb & Jul & Nov & \cite{ballardThisCouldBe2020, kovacsGoldDealerJM2020} \\
+\hdashline
+11 & \textbf{San Francisco Int Airport - US} & n/a & Auth & n/a & Apr & Apr & \cite{abhliashBreakingSanFrancisco2020} \\
+\hdashline
+12 & \textbf{Cardbleed - Int} & n/a & PII, Auth, \$ & Sept & Sept & Sept & \cite{teamsansecCardbleedMassiveMagento12020} \\
+\hdashline
+\multicolumn{2}{l}{ \textbf{Phishing} } & & & & & \multicolumn{2}{c}{ Total: 5 } \\
+\hline
+13 & \textbf{Tufts Health Plan \& EyeMed - US} & 0.06 & PII & July & Nov & Dec & \cite{TuftsHealthPlan} \\
+\hdashline
+14 & \textbf{Twitter - US} & 130 Accounts & Auth, Msg & n/a & Aug & Aug & \cite{TeenArrestedMastermind2020, guardianstaffandapTwitterHackUS2020} \\
+\hdashline
+15 & \textbf{Imperium Health - US} & 0.14 & PII, PHI & Apr & Apr & Sept & \cite{hippajournalPHIAlmost1402020} \\
+\hdashline
+16 & \textbf{Ambry Genetics - US} & 0.23 & PII & Jan & Jan & Apr & \cite{bizgaMedicalInformation2332020} \\
+\hdashline
+17 & \textbf{Beaumont Health - US} & 0.12 & PII, Health & May & Jun & Jul & \cite{000PatientsNotified2020} \\
+\hdashline
+\multicolumn{2}{l}{ \textbf{Ransomware} } & & & & & \multicolumn{2}{c}{ Total: 3 } \\
+\hline
+18 & \textbf{Magellan Health - US} & 1.70 & PII, Auth & Apr & Apr & May & \cite{davisRansomwareAttackMagellan2020} \\
+\hdashline
+19 & \textbf{Fresenius Group - DE} & n/a & System & n/a & May & May & \cite{krebsEuropeLargestPrivate2020} \\
+\hdashline
+20 & \textbf{Barnes \& Noble - US} & n/a & PII, Sensitive activity & n/a & Oct & Oct & \cite{abramsBarnesNobleHit2020} \\
+\hdashline
+\multicolumn{2}{l}{ \textbf{Unknown} } & & & & & \multicolumn{2}{c}{ Total: 10 } \\
+\hline
+21 & \textbf{Drizly - US} & 2.50 & PII, \$ & n/a & Feb & Jul & \cite{whittakerAlcoholDeliveryService2020} \\
+\hdashline
+22 & \textbf{Quidd - US} & 4.00 & PII, Auth & n/a & Oct & Mar & \cite{NearlyMillionQuidd2020} \\
+\hdashline
+23 & \textbf{MGM Resorts - US} & 142.00 & PII & n/a & Jul & Jul & \cite{MGMHackExposes2020, cimpanuHackerSellingDetails2020} \\
+\hdashline
+24 & \textbf{Nintendo - JP} & 0.30 & PII, \$ & n/a & Apr & Jun & \cite{liaoNintendoSaidThat2020} \\
+\hdashline
+25 & \textbf{Dental Care Alliance - US} & 1.00 & PII, Sensitive info & Sept & Oct & Dec & \cite{DentalCareAlliance2020} \\
+\hdashline
+26 & \textbf{Wishbone - US} & 40.00 & PII, Auth & Jan & May & May & \cite{cimpanuHackerLeaks402020} \\
+\hdashline
+27 & \textbf{Mathway - HR} & 25.00 & PII, Auth & n/a & Jan & May & \cite{cimpanu25MillionUser2020} \\
+\hdashline
+28 & \textbf{Minted - US} & 5.00 & PII, Auth & May & May & May & \cite{abramsMintedDisclosesData2020} \\
+\hdashline
+29 & \textbf{Chowbus - US} & 0.80 & PII, & n/a & Oct & Oct & \cite{abramsChowbusDeliveryService2020} \\
+\hdashline
+30 & \textbf{EasyJet - UK} & 9.00 & PII, \$ & April & April & May & \cite{wakefieldEasyJetAdmitsData2020} \\
+\hdashline
+\multicolumn{2}{l}{ \textbf{Unsecured Database} } & & & & & \multicolumn{2}{c}{ Total: 19 } \\
+\hline
+31 & \textbf{Pray.com - US} & 10.00 & PII, Sensitive activity & n/a & n/a & Nov & \cite{sealsGoodHeavens10M2020} \\
+\hdashline
+32 & \textbf{Paay - US} & 2.50 & Payment Info & Apr & Apr & Apr & \cite{riley5MCreditCard2020, whittakerNewYorkPayments2020} \\
+\hdashline
+33 & \textbf{Clubillion - US} & >1 & PII, Activity & n/a & Apr & Apr & \cite{ReportPopularGambling2020} \\
+\hdashline
+34 & \textbf{Pfizer (EMA) - NL} & n/a & Docs & n/a & n/a & Dec & \cite{PfizerBioNTechVaccine2020} \\
+\hdashline
+35 & \textbf{Estee Lauder - US} & 440.00 & PII, Activity & n/a & Jan & Feb & \cite{paganini440MRecordsFound2020} \\
+\hdashline
+36 & \textbf{Whisper - US} & 900.00 & PII & 2012 & Mar & Mar & \cite{osborneWhisperAnonymousSecretsharing2020} \\
+\hdashline
+37 & \textbf{MyCastingFile.com - US} & 0.26 & PII, Sensitive info & n/a & Apr & Jul & \cite{osborneUSActorCasting2020} \\
+\hdashline
+38 & \textbf{PhotoSquared - US} & 0.10 & PII, Sensitive info & Nov & Jan & Feb & \cite{muncasterPhotoSquaredAppLeaks2020} \\
+\hdashline
+39 & \textbf{Ancestry.com - US} & 0.06 & PII, Sensitive info & n/a & Jul & Jul & \cite{montalbanoLeakExposesPrivate2020} \\
+\hdashline
+40 & \textbf{123RF - HK} & 8.30 & PII, Auth & n/a & Oct & Nov & \cite{HackersStealMillion2020} \\
+\hdashline
+41 & \textbf{Fragomen, Del Rey, Bernsen \& Loewy - US} & n/a & PII & n/a & n/a & Oct & \cite{FragomenLawFirm2020} \\
+\hdashline
+42 & \textbf{Key Ring - US} & 14.00 & PII & n/a & Jan & Feb & \cite{cobleKeyRingApp2020, ReportPopularDigital2020} \\
+\hdashline
+43 & \textbf{Virgin Media - UK} & 0.90 & PII & n/a & Mar & Mar & \cite{cimpanuVirginMediaExposes2020} \\
+\hdashline
+44 & \textbf{U.S. Marshals Service - US} & 0.39 & PII & n/a & Dec & May & \cite{cimpanuUSMarshalsService2020} \\
+\hdashline
+45 & \textbf{Vertafore - US} & 27.70 & PII & Mar & Aug & Nov & \cite{cimpanuInfo27Million2020} \\
+\hdashline
+46 & \textbf{CouchSurfing - US} & 17.00 & PII & n/a & Jul & Jul & \cite{cimpanuCouchSurfingInvestigatesData2020} \\
+\hdashline
+47 & \textbf{Broadvoice - US} & 350.00 & PII, Sensitive Activity, Msg & n/a & Oct & Oct & \cite{BroadvoiceVoIPService2020, sealsBroadvoiceLeakExposes2020} \\
+\hdashline
+48 & \textbf{Avon - UK/US} & 19.00 & PII & n/a & Jun & Jul & \cite{muncasterCosmeticsGiantAvon2020} \\
+\hdashline
+49 & \textbf{Peekaboo Moments - CN} & n/a & PII, Media & n/a & Jul & Jul & \cite{maresMillionsImagesVideos2020} \\
+\hdashline
+\multicolumn{2}{l}{ \textbf{Other} } & & & & & \multicolumn{2}{c}{ Total: 11 } \\
+\hline
+50 & \textbf{Slickwraps - US} & 0.85 & PII, HR, Sys & Feb & Feb & Feb & \cite{lynx0x00HackedSlickWrapsThis2020} \\
+\hdashline
+51 & \textbf{BlueLeaks (Netsential) - US} & 0.70 & PII, \$, Activity & n/a & Jun & Jun & \cite{krebsBlueLeaksExposesFiles2020} \\
+\hdashline
+52 & \textbf{Beaumont Health - US} & 0.00 & PII, Health & Feb & Oct & Jan & \cite{greeneBeaumontFiresEmployee2020} \\
+\hdashline
+53 & \textbf{Dickey’s BBQ - US} & 3.00 & \$ & May '19 & Sep '20 & Oct & \cite{krebsBreachDickeyBBQ2020} \\
+\hdashline
+54 & \textbf{Health Share of Oregon - US} & 0.65 & PII++ & n/a & Jan & Feb & \cite{HealthShareData2020, osborneHealthShareOregon2020} \\
+\hdashline
+55 & \textbf{Walgreens - US} & <10 & PII & May & Jun & Jul & \cite{bizgaWalgreensDisclosesData2020} \\
+\hdashline
+56 & \textbf{Freepik - ES} & 8.30 & Auth & n/a & Aug & Aug & \cite{freepikStatementSecurityIncident2020, cimpanuFreePhotosGraphics2020} \\
+\hdashline
+57 & \textbf{Mashable.com - US} & n/a & PII, HR & n/a & Nov & Nov & \cite{mashableNoticeDataSecurity2020, waqasShinyHuntersHackerLeaks2020} \\
+\hdashline
+58 & \textbf{Dave Mobile Banking App - US} & 7.50 & PII, Auth & n/a & Jun & Jul & \cite{cimpanuTechUnicornDave2020} \\
+\hdashline
+59 & \textbf{General Electric - US} & 0.28 & PII & Feb & Feb & Mar & \cite{spadaforaGeneralElectricSuffers2020} \\
+\hdashline
+60 & \textbf{Promo.com - IL} & 22.00 & PII & n/a & Jul & Jul & \cite{abramsPromoComDiscloses2020} \\
+
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,24 @@
+---
+template: 'meta/ieeetemplate.tex'
+documentclass: IEEEtran
+classoption: conference
+title: Research Opportunities and Lessons Identified from Recent Web Security Attacks
+author:
+- name: Sirvan Almasi 
+  affiliation: Imperial College London
+  email: s.almasi@imperial.ac.uk
+- name: William J.Knottenbelt 
+  affiliation: Imperial College London
+  email: wjk@imperial.ac.uk
+date: Dec 2020
+biblio-style: IEEEtran
+bibliography: ref.bib
+abstract: |
+  The attractiveness of the web as a business channel is evident: businesses are able to connect and transact with more customers. The rising volume of web apps and their complexity has made the internet a global cyber-criminal playground. Small and under-resourced organisations are in a poor position to deal with the consequences. Consequences are loss of revenues and fraud for the customers of the businesses. But how unique are these security incidents? And can we minimise similar security incidents for other organisations through lessons-identified? In this paper we identify the causes behind web attacks and sensitive data breaches in 2020. We explore lessons-identified and research opportunities based on the evidence gathered. The brevity of the paper and the evidence can serve as a tool for better informed decision making.
+
+  Our approach started with analysing 60 incidents in web security and sensitive data breaches. We labelled each incident with information such as number of dumped records, type of data, and method of attack–e.g. Phishing. The inherent weaknesses in the Password and poor security culture are the main enablers of each incident. Research opportunities exist in improving browser security against malware threats, PII URI, and out-of-band communication systems for sensitive data.
+include-before: |
+  ```{=latex}
+  \pagestyle{plain}
+  ```
+...
