@@ -1,13 +1,18 @@
 META_FOLDER = meta
 OUTPUT = build
 
-all: latex
+all: latex logs
 
 # If you decide to go with pandoc-citeproc
 #	pandoc -s -F pandoc-crossref -F pandoc-citeproc meta.yaml --data-dir=data-dir --template=mytemplate.tex -N \
 #	-f markdown -t latex+raw_tex+tex_math_dollars+citations -o main.pdf main.md
 
 # You can still use pandoc-crossref to easily reference figures with [@fig:label] --csl=$(META_FOLDER)/bibliography.csl 
+
+# The follow logs the number of words written and dumps it into a file called
+# stats.writer.txt
+logs:
+	@(date +"%Y-%m-%d %T" | tr "\n" ", "; wc main.md | xargs | tr " " ", ") >> stats.writer.txt
 
 out:
 	@echo "Downloading biobliography file from Zotero..."
