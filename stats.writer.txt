@@ -1,1 +1,2 @@
-date, #lines, #words, #characters, file name\n
+date,#lines,#words,#characters,file name
+
