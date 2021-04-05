@@ -1,11 +1,11 @@
 META_FOLDER = wit
 OUTPUT = build
-ZOTERO = http://127.0.0.1:23119/better-bibtex/export/collection?/2/ZJ38YD6C.bibtex
+ZOTERO = http://127.0.0.1:23119/better-bibtex/export/collection?/1/8A5PRXDM.bibtex
 REF_NAME = ref.bib
 STATS_NAME = stats.wit.txt
 TEX_TEMPLATE_NAME = ieeetemplate.tex
-INPUT_FILE = $(INPUT_FILE)d
-OUTPUT_FILE = main.tedx
+INPUT_FILE = main.md
+OUTPUT_FILE = main.tex
 META_YAML = meta.yaml
 
 all: normal logs
