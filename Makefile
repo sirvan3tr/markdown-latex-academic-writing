@@ -3,25 +3,43 @@ OUTPUT = build
 ZOTERO = http://127.0.0.1:23119/better-bibtex/export/collection?/2/ZJ38YD6C.bibtex
 REF_NAME = ref.bib
 STATS_NAME = stats.wit.txt
+TEX_TEMPLATE_NAME = ieeetemplate.tex
+INPUT_FILE = $(INPUT_FILE)d
+OUTPUT_FILE = main.tedx
+META_YAML = meta.yaml
 
-all: ieeetemplate logs
+all: normal logs
 
-# The follow logs the number of words written and dumps it into a file called
-# stats.writer.txt
+# The follow logs the number of words written and dumps it into a file
 logs:
-	@(date +"%Y-%m-%d %T" | tr "\n" ", "; wc main.md | xargs | tr " " ", ") >> $(META_FOLDER)/$(STATS_NAME)
+	@(date +"%Y-%m-%d %T" | tr "\n" ", "; wc $(INPUT_FILE) | xargs | tr " " ", ") >> $(META_FOLDER)/$(STATS_NAME)
 
 ieeetemplate:
 	@echo "Downloading biobliography file from Zotero..."
 	@curl $(ZOTERO) --output $(OUTPUT)/$(REF_NAME) --silent
 	@cp $(OUTPUT)/$(REF_NAME) $(REF_NAME)
 	@echo "Running pandoc..."
-	@pandoc --citeproc -s --natbib $(META_FOLDER)/meta.yaml --template=$(META_FOLDER)/ieeetemplate.tex -N \
-	 -f markdown -t latex+raw_tex -o $(OUTPUT)/main.tex main.md
-	@sed -ie 's/\\cite[t,p]{/\\cite{/g' $(OUTPUT)/main.tex
-	@sed -ie 's/{natbib}/{cite}/' $(OUTPUT)/main.tex
-	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/main.tex
+	@pandoc --citeproc -s --natbib $(META_FOLDER)/$(META_YAML) --template=$(META_FOLDER)/$(TEX_TEMPLATE_NAME) -N \
+	 -f markdown -t latex+raw_tex -o $(OUTPUT)/$(OUTPUT_FILE) $(INPUT_FILE)
+	@sed -ie 's/\\cite[t,p]{/\\cite{/g' $(OUTPUT)/$(OUTPUT_FILE)
+	@sed -ie 's/{natbib}/{cite}/' $(OUTPUT)/$(OUTPUT_FILE)
+	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/$(OUTPUT_FILE)
 	@bibtex $(OUTPUT)/main
-	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/main.tex
-	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/main.tex
+	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/$(OUTPUT_FILE)
+	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/$(OUTPUT_FILE)
+	@rm $(REF_NAME)
+
+normal:
+	@echo "Downloading biobliography file from Zotero..."
+	@curl $(ZOTERO) --output $(OUTPUT)/$(REF_NAME) --silent
+	@cp $(OUTPUT)/$(REF_NAME) $(REF_NAME)
+	@echo "Running pandoc..."
+	@pandoc --citeproc --bibliography=$(REF_NAME) -s --natbib $(META_FOLDER)/$(META_YAML) -N \
+	 -f markdown -t latex+raw_tex -o $(OUTPUT)/$(OUTPUT_FILE) $(INPUT_FILE)
+	@sed -ie 's/\\cite[t,p]{/\\cite{/g' $(OUTPUT)/$(OUTPUT_FILE)
+	@sed -ie 's/{natbib}/{cite}/' $(OUTPUT)/$(OUTPUT_FILE)
+	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/$(OUTPUT_FILE)
+	@bibtex $(OUTPUT)/main
+	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/$(OUTPUT_FILE)
+	@pdflatex -aux-directory=$(OUTPUT) -output-directory=$(OUTPUT) $(OUTPUT)/$(OUTPUT_FILE)
 	@rm $(REF_NAME)
