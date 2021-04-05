@@ -11,17 +11,6 @@ all: ieeetemplate logs
 logs:
 	@(date +"%Y-%m-%d %T" | tr "\n" ", "; wc main.md | xargs | tr " " ", ") >> $(META_FOLDER)/$(STATS_NAME)
 
-out:
-	@echo "Downloading biobliography file from Zotero..."
-	@curl http://127.0.0.1:23119/better-bibtex/export/collection?/2/ZJ38YD6C.bibtex --output $(OUTPUT)/$(REF_NAME) --silent
-	@echo "Running pandoc..."
-	@pandoc $(META_FOLDER)/meta.yaml \
-		--template=$(META_FOLDER)/ieeetemplate.tex -N \
-		--citeproc --bibliography=$(REF_NAME) \
-		--csl=$(META_FOLDER)/bibliography.csl \
-		-o $(OUTPUT)/out.tex main.md
-	@echo "Finished."
-
 ieeetemplate:
 	@echo "Downloading biobliography file from Zotero..."
 	@curl $(ZOTERO) --output $(OUTPUT)/$(REF_NAME) --silent
