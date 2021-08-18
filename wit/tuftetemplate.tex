@@ -9,9 +9,17 @@
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \graphicspath{{graphics/}}
 
-\title{An Example of the Usage of the Tufte-Handout Style\thanks{Inspired by Edward~R. Tufte!}}
-\author[The Tufte-LaTeX Developers]{The Tufte-\LaTeX\ Developers}
-\date{24 January 2009}  % if the \date{} command is left out, the current date will be used
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+%% Title
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+
+\author[Sirvan Almasi]{Sirvan Almasi}
+\date{$date$}
 
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
@@ -43,10 +51,76 @@
 
 \begin{document}
 
-\maketitle% this prints the handout title, author, and date
+$if(title)$
+\maketitle
+$endif$
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$if(toc)$
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+$if(beamer)$
+\begin{frame}[allowframebreaks]
+$if(toc-title)$
+  \frametitle{$toc-title$}
+$endif$
+  \tableofcontents[hideallsubsections]
+\end{frame}
+$else$
+{
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+$if(has-frontmatter)$
+\mainmatter
+$endif$
+$body$
 
 
-\bibliography{ref}
-\bibliographystyle{plainnat}
+$if(natbib)$
+
+$if(bibliography)$
+    $if(biblio-title)$
+      $if(book-class)$
+         \renewcommand\bibname{$biblio-title$}
+      $else$
+         \renewcommand\refname{$biblio-title$}
+      $endif$
+    $endif$
+
+\bibliographystyle{$biblio-style$}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+  $endif$
+$endif$
+
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+
+$for(include-after)$
+$include-after$
+$endfor$
 
 \end{document}
